@@ -1,5 +1,5 @@
 view: tv_series {
-  sql_table_name: title ;;
+  sql_table_name: "[lookerdata:imdb.title]" ;;
 
   dimension: id {
     label: "TV Series ID"

@@ -1,4 +1,6 @@
 view: cast_info {
+  sql_table_name: "[lookerdata:imdb.cast_info]" ;;
+
   dimension: id {
     primary_key: yes
     type: number
@@ -48,10 +50,6 @@ view: cast_info {
     label: "Role (Job they performed)"
 
     case: {
-      when: {
-        sql: ${role_id} = 12 ;;
-        label: "12"
-      }
 
       when: {
         sql: ${role_id} IN (1, 2) ;;
@@ -101,6 +99,11 @@ view: cast_info {
       when: {
         sql: ${role_id} = 11 ;;
         label: "Production Design"
+      }
+
+      when: {
+        sql: ${role_id} = 12 ;;
+        label: "12"
       }
     }
   }

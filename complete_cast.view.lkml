@@ -1,4 +1,6 @@
 view: complete_cast {
+  sql_table_name: "[lookerdata:imdb.complete_cast]" ;;
+
   dimension: id {
     primary_key: yes
     type: number

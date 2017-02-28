@@ -1,5 +1,5 @@
 view: movie_info {
-  sql_table_name: movie_info ;;
+  sql_table_name: "[lookerdata:imdb.movie_info]" ;;
 
   dimension: id {
     primary_key: yes

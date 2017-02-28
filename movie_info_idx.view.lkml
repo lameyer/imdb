@@ -1,4 +1,6 @@
 view: movie_info_idx {
+  sql_table_name: "[lookerdata:imdb.movie_info_idx]" ;;
+
   dimension: id {
     primary_key: yes
     type: number

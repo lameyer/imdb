@@ -1,4 +1,6 @@
 view: person_info {
+  sql_table_name: "[lookerdata:imdb.person_info]" ;;
+
   dimension: id {
     primary_key: yes
     type: number
