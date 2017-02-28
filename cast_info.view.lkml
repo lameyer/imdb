@@ -14,20 +14,6 @@ view: cast_info {
     hidden: yes
   }
 
-  dimension: note {
-    sql: ${TABLE}.note ;;
-  }
-
-  dimension: named_role_order {
-    type: number
-    sql: ${TABLE}.nr_order ;;
-  }
-
-  measure: average_named_role_order {
-    type: average
-    sql: ${named_role_order} ;;
-  }
-
   dimension: person_id {
     type: number
     sql: ${TABLE}.person_id ;;
@@ -44,6 +30,10 @@ view: cast_info {
     type: number
     sql: ${TABLE}.role_id ;;
     hidden: yes
+  }
+
+  dimension: note {
+    sql: ${TABLE}.note ;;
   }
 
   dimension: role {
@@ -106,6 +96,18 @@ view: cast_info {
         label: "12"
       }
     }
+  }
+
+  dimension: named_role_order {
+    type: number
+    sql: ${TABLE}.nr_order ;;
+    hidden: yes
+  }
+
+  measure: average_named_role_order {
+    type: average
+    sql: ${named_role_order} ;;
+    hidden: yes
   }
 
   measure: person_in_role_count {
