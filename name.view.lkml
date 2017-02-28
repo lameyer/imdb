@@ -1,5 +1,19 @@
 view: name {
-  sql_table_name: [lookerdata:imdb.name] ;;
+  derived_table: {
+    persist_for: "500 hours"
+    sql:
+      SELECT
+        *
+        , CONCAT(first_name, ' ', last_name) as person_name
+        FROM (
+          SELECT
+            *
+            , FIRST(SPLIT(name.name,', ')) AS last_name
+            , NTH(2,SPLIT(name.name,', ')) as first_name
+          FROM [lookerdata:imdb.name]
+        ) as n
+       ;;
+  }
 
   dimension: id {
     label: "Person ID"
@@ -16,12 +30,8 @@ view: name {
     sql: ${TABLE}.person_name ;;
   }
 
-  dimension: last_name {
-    sql: FIRST(SPLIT(${TABLE}.name,', ')) ;;
-  }
-  dimension: first_name {
-    sql: NTH(2,SPLIT(${TABLE}.name,', ')) ;;
-  }
+  dimension: last_name {}
+  dimension: first_name {}
 
   dimension: imdb_id {
     type: number
