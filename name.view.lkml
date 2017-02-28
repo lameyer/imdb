@@ -10,7 +10,7 @@ view: name {
             *
             , FIRST(SPLIT(name.name,', ')) AS last_name
             , NTH(2,SPLIT(name.name,', ')) as first_name
-          FROM [lookerdata:imdb.name]
+          FROM [lookerdata:imdb.name] as name
         ) as n
        ;;
   }
