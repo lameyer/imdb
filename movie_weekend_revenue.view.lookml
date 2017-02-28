@@ -7,7 +7,6 @@
 - view: movie_weekend_revenue
   derived_table:
     persist_for: 100 hours
-    indexes: [movie_id]
     sql: |
       SELECT 
         *

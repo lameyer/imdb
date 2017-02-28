@@ -1,7 +1,6 @@
 - view: name
   derived_table:
     persist_for: 500 hours
-    indexes: [id]
     sql: |
      
         SELECT 

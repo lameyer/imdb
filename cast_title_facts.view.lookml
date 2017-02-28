@@ -1,7 +1,6 @@
 - view: cast_title_facts
   derived_table:
     persist_for: 100 hours
-    indexes: [person_id]
     sql: |
       SELECT
         cast_info.person_id as person_id

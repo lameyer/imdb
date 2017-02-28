@@ -1,7 +1,6 @@
 - view: cast_top_genre
   derived_table:
     persist_for: 100 hours
-    indexes: [person_id]
     sql: |
       SELECT
         person_id

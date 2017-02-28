@@ -1,7 +1,6 @@
 - view: title_location
   derived_table:
     persist_for: 100 hours
-    indexes: [movie_id]
     sql: |
       SELECT 
         movie_id
