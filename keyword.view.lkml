@@ -1,5 +1,5 @@
 view: keyword {
-  sql_table_name: "[lookerdata:imdb.keyword]" ;;
+  sql_table_name: [lookerdata:imdb.keyword] ;;
 
   dimension: id {
     primary_key: yes

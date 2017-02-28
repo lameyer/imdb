@@ -1,5 +1,5 @@
 view: title_base {
-  sql_table_name: "[lookerdata:imdb.title]" ;;
+  sql_table_name: [lookerdata:imdb.title] ;;
 
   dimension: id {
     primary_key: yes
