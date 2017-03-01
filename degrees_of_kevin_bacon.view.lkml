@@ -29,7 +29,8 @@ view: degrees_of_kevin_bacon {
           ) as min_degree
 
         WHERE
-          {% condition degrees_of_kevin_bacon.id_filter %}
+
+          {% condition id_filter %}
             CASE WHEN min_degree.degree = 1 THEN one_degree.person_id
                  WHEN min_degree.degree = 2 THEN two_degree.person_id
                  WHEN min_degree.degree = 3 THEN three_degree.person_id
