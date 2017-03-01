@@ -14,80 +14,82 @@ view: title_table_name {
   sql_table_name: imdb.title ;;
 }
 
-explore: degrees_of_kevin_bacon {
-  join: one_degree_person {
-    view_label: "1st Degree"
-    from: name
-    fields: [name]
-    sql_on: ${degrees_of_kevin_bacon.one_person_id} = ${one_degree_person.id} ;;
-  }
-  join: two_degree_person {
-    view_label: "2nd Degree"
-    from: name
-    fields: [name]
-    sql_on: ${degrees_of_kevin_bacon.two_person_id} = ${two_degree_person.id} ;;
-  }
-  join: three_degree_person {
-    view_label: "3rd Degree"
-    from: name
-    fields: [name]
-    sql_on: ${degrees_of_kevin_bacon.three_person_id} = ${three_degree_person.id} ;;
-  }
-  join: four_degree_person {
-    view_label: "4th Degree"
-    from: name
-    fields: [name]
-    sql_on: ${degrees_of_kevin_bacon.four_person_id} = ${four_degree_person.id} ;;
-  }
-  join: five_degree_person {
-    view_label: "5th Degree"
-    from: name
-    fields: [name]
-    sql_on: ${degrees_of_kevin_bacon.five_person_id} = ${five_degree_person.id} ;;
-  }
-  join: six_degree_person {
-    view_label: "6th Degree"
-    from: name
-    fields: [name]
-    sql_on: ${degrees_of_kevin_bacon.six_person_id} = ${six_degree_person.id} ;;
-  }
+explore: name {}
 
-  join: one_degree_movie {
-    view_label: "1st Degree"
-    from: title
-    fields: [title]
-    sql_on: ${degrees_of_kevin_bacon.one_movie_id} = ${one_degree_movie.id} ;;
-  }
-  join: two_degree_movie {
-    view_label: "2nd Degree"
-    from: title
-    fields: [title]
-    sql_on: ${degrees_of_kevin_bacon.two_movie_id} = ${two_degree_movie.id} ;;
-  }
-  join: three_degree_movie {
-    view_label: "3rd Degree"
-    from: title
-    fields: [title]
-    sql_on: ${degrees_of_kevin_bacon.three_movie_id} = ${three_degree_movie.id} ;;
-  }
-  join: four_degree_movie {
-    view_label: "4th Degree"
-    from: title
-    fields: [title]
-    sql_on: ${degrees_of_kevin_bacon.four_movie_id} = ${four_degree_movie.id} ;;
-  }
-  join: five_degree_movie {
-    view_label: "5th Degree"
-    from: title
-    fields: [title]
-    sql_on: ${degrees_of_kevin_bacon.five_movie_id} = ${five_degree_movie.id} ;;
-  }
-  join: six_degree_movie {
-    view_label: "6th Degree"
-    from: title
-    fields: [title]
-    sql_on: ${degrees_of_kevin_bacon.six_movie_id} = ${six_degree_movie.id} ;;
-  }
+explore: degrees_of_kevin_bacon {
+#   join: one_degree_person {
+#     view_label: "1st Degree"
+#     from: name
+#     fields: [name]
+#     sql_on: ${degrees_of_kevin_bacon.one_person_id} = ${one_degree_person.id} ;;
+#   }
+#   join: two_degree_person {
+#     view_label: "2nd Degree"
+#     from: name
+#     fields: [name]
+#     sql_on: ${degrees_of_kevin_bacon.two_person_id} = ${two_degree_person.id} ;;
+#   }
+#   join: three_degree_person {
+#     view_label: "3rd Degree"
+#     from: name
+#     fields: [name]
+#     sql_on: ${degrees_of_kevin_bacon.three_person_id} = ${three_degree_person.id} ;;
+#   }
+#   join: four_degree_person {
+#     view_label: "4th Degree"
+#     from: name
+#     fields: [name]
+#     sql_on: ${degrees_of_kevin_bacon.four_person_id} = ${four_degree_person.id} ;;
+#   }
+#   join: five_degree_person {
+#     view_label: "5th Degree"
+#     from: name
+#     fields: [name]
+#     sql_on: ${degrees_of_kevin_bacon.five_person_id} = ${five_degree_person.id} ;;
+#   }
+#   join: six_degree_person {
+#     view_label: "6th Degree"
+#     from: name
+#     fields: [name]
+#     sql_on: ${degrees_of_kevin_bacon.six_person_id} = ${six_degree_person.id} ;;
+#   }
+
+#   join: one_degree_movie {
+#     view_label: "1st Degree"
+#     from: title
+#     fields: [title]
+#     sql_on: ${degrees_of_kevin_bacon.one_movie_id} = ${one_degree_movie.id} ;;
+#   }
+#   join: two_degree_movie {
+#     view_label: "2nd Degree"
+#     from: title
+#     fields: [title]
+#     sql_on: ${degrees_of_kevin_bacon.two_movie_id} = ${two_degree_movie.id} ;;
+#   }
+#   join: three_degree_movie {
+#     view_label: "3rd Degree"
+#     from: title
+#     fields: [title]
+#     sql_on: ${degrees_of_kevin_bacon.three_movie_id} = ${three_degree_movie.id} ;;
+#   }
+#   join: four_degree_movie {
+#     view_label: "4th Degree"
+#     from: title
+#     fields: [title]
+#     sql_on: ${degrees_of_kevin_bacon.four_movie_id} = ${four_degree_movie.id} ;;
+#   }
+#   join: five_degree_movie {
+#     view_label: "5th Degree"
+#     from: title
+#     fields: [title]
+#     sql_on: ${degrees_of_kevin_bacon.five_movie_id} = ${five_degree_movie.id} ;;
+#   }
+#   join: six_degree_movie {
+#     view_label: "6th Degree"
+#     from: title
+#     fields: [title]
+#     sql_on: ${degrees_of_kevin_bacon.six_movie_id} = ${six_degree_movie.id} ;;
+#   }
 }
 
 explore: title_base {
