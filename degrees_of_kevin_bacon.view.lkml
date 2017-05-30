@@ -4,15 +4,17 @@ view: degrees_of_kevin_bacon {
       SELECT
         min_degree.degree as degree,
 
-        all.one_degree_movie_title as one_movie_title,
-        CASE WHEN min_degree.degree < 2 THEN NULL ELSE all.two_degree_movie_title END as two_movie_title,
-        CASE WHEN min_degree.degree < 3 THEN NULL ELSE all.three_degree_movie_title END as three_movie_title,
+        one_degree.movie_title as one_movie_title,
+        CASE WHEN min_degree.degree < 2 THEN NULL ELSE two_degree.movie_title END as two_movie_title,
+        CASE WHEN min_degree.degree < 3 THEN NULL ELSE three_degree.movie_title END as three_movie_title,
 
-        one_degree_person_name as one_person_name,
-        CASE WHEN min_degree.degree <= 2 THEN NULL ELSE all.two_degree_person_name END as two_person_name,
-        CASE WHEN min_degree.degree <= 3 THEN NULL ELSE all.three_degree_person_name END as three_person_name
+        one_degree.person_name as one_person_name,
+        CASE WHEN min_degree.degree <= 2 THEN NULL ELSE two_degree.person_name END as two_person_name,
+        CASE WHEN min_degree.degree <= 3 THEN NULL ELSE three_degree.person_name END as three_person_name
 
-        FROM ${all_joined2.SQL_TABLE_NAME} as all
+        FROM ${kb_one_degree.SQL_TABLE_NAME} as one_degree
+        LEFT JOIN ${kb_two_degrees.SQL_TABLE_NAME} as two_degree ON one_degree.person_id = two_degree.original_person_id
+        LEFT JOIN ${kb_three_degrees.SQL_TABLE_NAME} as three_degree ON two_degree.person_id = three_degree.original_person_id
         CROSS JOIN (
           SELECT degree FROM ${min_degree.SQL_TABLE_NAME} as min_degree
           WHERE {% condition id_filter %} min_degree.person_id {% endcondition %}
@@ -20,10 +22,10 @@ view: degrees_of_kevin_bacon {
 
         WHERE
           {% condition id_filter %}
-            CASE WHEN min_degree.degree = 1 THEN all.one_degree_person_id
-                 WHEN min_degree.degree = 2 THEN all.two_degree_person_id
-                 WHEN min_degree.degree = 3 THEN all.three_degree_person_id
-            ELSE three_degree_person_id
+            CASE WHEN min_degree.degree = 1 THEN one_degree.person_id
+                 WHEN min_degree.degree = 2 THEN two_degree.person_id
+                 WHEN min_degree.degree = 3 THEN three_degree.person_id
+            ELSE three_degree.person_id
             END
           {% endcondition %}
       ;;
@@ -72,7 +74,7 @@ view: degrees_of_kevin_bacon {
 explore: all_joined2 {}
 view: all_joined2 {
   derived_table: {
-    persist_for: "12 hours"
+    persist_for: "5000 hours"
     sql:
       SELECT
         one_degree.movie_title as one_degree_movie_title,
@@ -102,7 +104,7 @@ view: all_joined2 {
 explore: min_degree {}
 view: min_degree {
   derived_table: {
-    persist_for: "12 hours"
+    persist_for: "5000 hours"
     sql:
       SELECT
         person_id,
@@ -126,7 +128,7 @@ view: min_degree {
 
 view: kb_base {
   derived_table: {
-    persist_for: "12 hours"
+    persist_for: "5000 hours"
   }
 
   dimension: degree {

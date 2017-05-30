@@ -81,8 +81,11 @@ view: title {
 
   dimension: title {
     sql: ${TABLE}.title ;;
-    html: {{ linked_value }} [<a href="https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=site:imdb.com+%22{{value}}+({{production_year._value}})%22">&#x2139;</a>]
-      ;;
+#     link: {
+#       label: "Google"
+#       url: "https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=site:imdb.com+%22{{value}}+({{production_year._value}})%22"
+#       icon_url: "https://maxcdn.icons8.com/Share/icon/Logos//google_logo1600.png"
+#     }
   }
 
   measure: count {
